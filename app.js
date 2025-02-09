@@ -11,15 +11,11 @@ app.use(cors());
 app.use(userRoute);
 
 mongoose
-  .connect(
-    "mongodb+srv://khananeesu304:cgEolXCDp6YmTZyr@cluster0.fjpnz.mongodb.net",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect("mongodb+srv://khananeesu304:cgEolXCDp6YmTZyr@cluster0.fjpnz.mongodb.net", {
+    useNewUrlParser: true,
+  })
   .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.error(err));
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 app.get("/", (req, res) => {
   res.send("Welcome to landingpage API");
