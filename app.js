@@ -4,16 +4,17 @@ const userRoute = require("./routes/user.route");
 const cors = require("cors");
 
 const app = express();
-
 app.use(express.json());
-
 app.use(cors());
 app.use(userRoute);
 
 mongoose
-  .connect("mongodb+srv://khananeesu304:cgEolXCDp6YmTZyr@cluster0.fjpnz.mongodb.net", {
-    useNewUrlParser: true,
-  })
+  .connect(
+    "mongodb+srv://khananeesu304:cgEolXCDp6YmTZyr@cluster0.fjpnz.mongodb.net",
+    {
+      useNewUrlParser: true,
+    }
+  )
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
@@ -21,5 +22,6 @@ app.get("/", (req, res) => {
   res.send("Welcome to landingpage API");
 });
 
-const PORT = 3000;
+// ✅ Use Heroku's dynamic port
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
