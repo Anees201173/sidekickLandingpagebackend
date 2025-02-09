@@ -25,5 +25,5 @@ app.get("/", (req, res) => {
   res.send("Welcome to landingpage API");
 });
 
-const PORT = 3000;
+const PORT =  3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
